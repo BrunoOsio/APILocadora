@@ -6,15 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Car implements Serializable{
+public class Car implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -22,20 +25,22 @@ public class Car implements Serializable{
 	private String model;
 	private String year;
 	private Double price;
-	
+
+	@OneToOne
+	private Client whoRented;
+
 	public Car() {
 		super();
 	}
 
-	public Car(String manufac, String model, String year, Double price) {
+	public Car(String manufac, String model, String year, Double price, Client whoRented) {
 		super();
 		this.manufac = manufac;
 		this.model = model;
 		this.year = year;
 		this.price = price;
+		this.whoRented = whoRented;
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -77,6 +82,14 @@ public class Car implements Serializable{
 		this.price = price;
 	}
 
+	public Client getWhoRented() {
+		return whoRented;
+	}
+
+	public void setWhoRented(Client whoRented) {
+		this.whoRented = whoRented;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,5 +115,4 @@ public class Car implements Serializable{
 		return true;
 	}
 
-	
 }

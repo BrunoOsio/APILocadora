@@ -18,7 +18,6 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
-//	private List<Carro> listCarro;
 
 	public Client() {
 		super();
@@ -69,7 +68,5 @@ public class Client implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
 
 }
