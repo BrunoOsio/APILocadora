@@ -41,6 +41,16 @@ public class Car implements Serializable {
 		this.price = price;
 		this.whoRented = whoRented;
 	}
+	
+	
+
+	public Car(String manufac, String model, String year, Double price) {
+		super();
+		this.manufac = manufac;
+		this.model = model;
+		this.year = year;
+		this.price = price;
+	}
 
 	public Long getId() {
 		return id;
